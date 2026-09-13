@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  threatpilot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./llm_working_folder:/app/llm_working_folder
+      - ./logs.db:/app/logs.db
+    command: ["HELLO_AGENTS"]
+
+  demo-servers:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8800:8800"
+      - "2100:2100"
+    volumes:
+      - ./llm_working_folder:/app/llm_working_folder
+    entrypoint: ["python", "run_servers.py"]

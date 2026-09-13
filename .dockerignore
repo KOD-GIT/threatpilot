@@ -1,0 +1,15 @@
+.git
+.gitignore
+.dockerignore
+.venv
+venv/
+env/
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+logs.db
+llm_working_folder/
+.vscode
+requirements-dev.txt
